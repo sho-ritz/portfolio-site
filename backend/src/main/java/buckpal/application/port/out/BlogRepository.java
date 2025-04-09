@@ -1,5 +1,7 @@
 package buckpal.application.port.out;
 
+import java.util.List;
+
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,13 +14,19 @@ public interface BlogRepository extends JpaRepository<BlogJpaEntity, BlogId> {
 	@Query(
 		"""
 		select a from BlogJpaEntity a
-		a.id = :id
+		where a.id = :id
 		"""
 	)
 	Blog findById(
 		@Param("id")  Long id
 	);
 	
+	@Query(
+			"""
+			select a from BlogJpaEntity a
+			"""
+		)
+		List<Blog> getAll();
 	
 	
 }

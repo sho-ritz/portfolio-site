@@ -1,8 +1,11 @@
 package buckpal.application.port.in;
 
-import java.util.Optional;
+import java.util.List;
+
+import buckpal.application.domain.model.Blog;
 
 public interface BlogUseCase {
+	List<Blog> getBlogs();
     /**
      * ブログ投稿を作成するユースケース
      *
@@ -19,7 +22,7 @@ public interface BlogUseCase {
      * @param title   新しいタイトル
      * @param content 新しい本文
      */
-    boolean updateBlog(String id, Optional<String> title, Optional<String> content);
+    boolean updateBlog(UpdateBlogCommand command);
 
     /**
      * ブログ投稿を削除するユースケース

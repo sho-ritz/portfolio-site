@@ -1,23 +1,21 @@
 package buckpal.application.port.in;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import jakarta.validation.constraints.NotNull;
 
-import buckpal.application.domain.model.BlogId;
-
-public record UpdateBlogCommand (
-	String title,
-	String content,
-	BlogId id
-) {
+public class UpdateBlogCommand {
+	String id;
+	Optional<String> title;
+	Optional<String> content;
+	
 	public UpdateBlogCommand(
-			@NotNull String title,
-			@NotNull String content,
-			@NotNull BlogId id
+			@NotNull String id,
+			Optional<String> title,
+			Optional<String> content
 	) {
-		Objects.requireNonNull(title);
-		Objects.requireNonNull(content);
+		Objects.requireNonNull(id);
 		
 		this.title = title;
 		this.content = content;
@@ -26,15 +24,15 @@ public record UpdateBlogCommand (
 		Validator.validate(this);
 	}
 	
-	public String getTitle() {
+	public Optional<String> getTitle() {
 		return title;
 	}
 	
-	public String getContent() {
+	public Optional<String> getContent() {
 		return content;
 	}
 	
-	public BlogId getId() {
+	public String getId() {
 		return id;
 	}
 }
