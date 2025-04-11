@@ -2,9 +2,8 @@ services:
   - type: web
     name: portfolio_site_backend
     rootDir: backend
-    env: java
-    buildCommand: ./mvnw clean install
-    startCommand: ./setup.sh && java -jar target/backend-0.0.1-SNAPSHOT.jar
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: DB_URL
         value: ${DB_URL}
