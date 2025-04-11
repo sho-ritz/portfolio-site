@@ -19,6 +19,12 @@ import buckpal.application.port.in.UpdateBlogCommand;
 public class BlogController {
 	private BlogUseCase blogUseCase;
 	
+	public BlogController (
+			BlogUseCase blogUseCase
+			) {
+		this.blogUseCase = blogUseCase;
+	}
+	
 	@GetMapping("/get-all")
 	List<BlogResource> getBlogs() {
 	    List<Blog> blogs = blogUseCase.getBlogs();
@@ -27,18 +33,16 @@ public class BlogController {
 	                .toList();
 	}
 	
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Void> createBlog(@RequestBody CreateBlogRequest request) {
-        // 受け取ったJSONは自動的にBlogRequestにマッピングされる
         CreateBlogCommand command = new CreateBlogCommand(request.getTitle(), request.getContent());
         blogUseCase.createBlog(command);
 
         return ResponseEntity.ok().build();
     }
     
-    @PostMapping
+    @PostMapping("/update")
     public ResponseEntity<Void> updateBlog(@RequestBody UpdateBlogRequest request) {
-        // 受け取ったJSONは自動的にBlogRequestにマッピングされる
         UpdateBlogCommand command = new UpdateBlogCommand(request.getId(), request.getTitle(), request.getContent());
         blogUseCase.updateBlog(command);
 

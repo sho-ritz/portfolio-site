@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import buckpal.application.domain.model.BlogId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class BlogJpaEntity {
 	
 	@Id
-	private BlogId id;
+	private String id;
 	
 	@Column
 	private LocalDateTime updatedAt;
@@ -29,8 +28,8 @@ public class BlogJpaEntity {
 	private LocalDateTime createdAt;
 	
 	@Column
-	private String content;
+	private String title;
 	
 	@Column
-	private String title;
+	private String content;
 }

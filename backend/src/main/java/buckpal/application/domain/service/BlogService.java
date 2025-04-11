@@ -3,6 +3,8 @@ package buckpal.application.domain.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
 import buckpal.adapter.out.BlogJpaEntity;
 import buckpal.adapter.out.BlogMapper;
 import buckpal.application.domain.exception.BlogNotFoundException;
@@ -16,6 +18,7 @@ import buckpal.application.port.out.CreateBlogPort;
 import buckpal.application.port.out.DeleteBlogPort;
 import buckpal.application.port.out.UpdateBlogPort;
 
+@Service
 class BlogService implements BlogUseCase {
 	
 	private final CreateBlogPort createBlogPort;
@@ -32,7 +35,11 @@ class BlogService implements BlogUseCase {
     
     @Override
     public List<Blog> getBlogs() {
-    	return blogRepository.getAll();
+        List<BlogJpaEntity> blogJpaEntities = blogRepository.findAll();
+
+        return blogJpaEntities.stream()
+                .map(BlogMapper::mapToBlogEntity)
+                .toList();
     }
 
 	@Override
@@ -45,11 +52,9 @@ class BlogService implements BlogUseCase {
 
 	@Override
 	public boolean updateBlog(UpdateBlogCommand command) {
-		
-        BlogId blogId = new BlogId(command.getId());
         
-        BlogJpaEntity jpaBlogEntity = blogRepository.findById(blogId)
-            .orElseThrow(() -> new BlogNotFoundException("Blog not found: " + blogId));
+        BlogJpaEntity jpaBlogEntity = blogRepository.findById(command.getId())
+            .orElseThrow(() -> new BlogNotFoundException("Blog not found: " + command.getId()));
         
         Blog blog = BlogMapper.mapToBlogEntity(jpaBlogEntity);
         
@@ -62,9 +67,8 @@ class BlogService implements BlogUseCase {
 
 	@Override
 	public boolean deleteBlog(String id) {
-        BlogId blogId = new BlogId(id);
-        
-        BlogJpaEntity jpaBlogEntity = blogRepository.findById(blogId)
+
+        BlogJpaEntity jpaBlogEntity = blogRepository.findById(id)
                 .orElseThrow(() -> new BlogNotFoundException("Blog not found: " + id));
         
         Blog blog = BlogMapper.mapToBlogEntity(jpaBlogEntity);

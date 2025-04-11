@@ -1,11 +1,14 @@
 package buckpal.adapter.out;
 
+import org.springframework.stereotype.Repository;
+
 import buckpal.application.domain.model.Blog;
 import buckpal.application.port.out.BlogRepository;
 import buckpal.application.port.out.CreateBlogPort;
 import buckpal.application.port.out.DeleteBlogPort;
 import buckpal.application.port.out.UpdateBlogPort;
 
+@Repository
 class BlogPersistanceAdapter implements CreateBlogPort, UpdateBlogPort, DeleteBlogPort {
 	
 	private final BlogRepository blogRepository;
@@ -26,7 +29,6 @@ class BlogPersistanceAdapter implements CreateBlogPort, UpdateBlogPort, DeleteBl
 
 	@Override
 	public boolean updateBlog(Blog blog) {
-        // 更新後の状態を再度永続化する
         blogRepository.save(BlogMapper.mapToBlogJpaEntity(blog));
         
         return true;
