@@ -573,7 +573,7 @@ export function TetrisGame() {
   };
 
   // マウス移動イベントハンドラ
-  const handleMouseMove = (e: KeyboardEvent) => {
+  const handleMouseMove = (e: MouseEvent) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
 
