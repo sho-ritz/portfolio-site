@@ -1,9 +1,9 @@
-import Link from "next/link"
-import { ArrowLeft, ExternalLink, Github, Tag } from "lucide-react"
+import Link from "next/link";
+import { ArrowLeft, ExternalLink, Github, Tag } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // This is a placeholder for demonstration purposes
 // In a real application, you would fetch project data from a database or CMS
@@ -11,7 +11,8 @@ const projects = [
   {
     id: 1,
     title: "E-commerce Platform",
-    description: "A full-featured e-commerce platform built with Next.js, Tailwind CSS, and Stripe integration.",
+    description:
+      "A full-featured e-commerce platform built with Next.js, Tailwind CSS, and Stripe integration.",
     image: "/placeholder.svg",
     tags: ["Next.js", "React", "Tailwind CSS", "Stripe"],
     demoUrl: "https://example.com",
@@ -32,7 +33,8 @@ const projects = [
   {
     id: 3,
     title: "Portfolio Website",
-    description: "A modern portfolio website with blog functionality built with Next.js and Tailwind CSS.",
+    description:
+      "A modern portfolio website with blog functionality built with Next.js and Tailwind CSS.",
     image: "/placeholder.svg",
     tags: ["Next.js", "React", "Tailwind CSS"],
     demoUrl: "https://example.com",
@@ -42,7 +44,8 @@ const projects = [
   {
     id: 4,
     title: "Weather App",
-    description: "A weather application that provides real-time weather information using the OpenWeather API.",
+    description:
+      "A weather application that provides real-time weather information using the OpenWeather API.",
     image: "/placeholder.svg",
     tags: ["React", "API Integration", "CSS"],
     demoUrl: "https://example.com",
@@ -52,7 +55,8 @@ const projects = [
   {
     id: 5,
     title: "Recipe Finder",
-    description: "An application that allows users to search for recipes based on ingredients they have.",
+    description:
+      "An application that allows users to search for recipes based on ingredients they have.",
     image: "/placeholder.svg",
     tags: ["React", "API Integration", "Styled Components"],
     demoUrl: "https://example.com",
@@ -62,14 +66,15 @@ const projects = [
   {
     id: 6,
     title: "Chat Application",
-    description: "A real-time chat application with private messaging and group chat functionality.",
+    description:
+      "A real-time chat application with private messaging and group chat functionality.",
     image: "/placeholder.svg",
     tags: ["React", "Socket.io", "Node.js", "Express"],
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/yourusername/project",
     category: "mobile",
   },
-]
+];
 
 export default function ProjectsPage() {
   return (
@@ -83,24 +88,39 @@ export default function ProjectsPage() {
                   <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
                 </Button>
               </Link>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">All Projects</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+                All Projects
+              </h1>
               <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Browse through my portfolio of projects. Filter by category to find what you're looking for.
+                Browse through my portfolio of projects. Filter by category to
+                find what you're looking for.
               </p>
             </div>
 
             <Tabs defaultValue="all" className="mt-8">
               <TabsList className="mb-8 bg-gray-900 text-gray-400">
-                <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <TabsTrigger
+                  value="all"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                >
                   All Projects
                 </TabsTrigger>
-                <TabsTrigger value="web" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <TabsTrigger
+                  value="web"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                >
                   Web Development
                 </TabsTrigger>
-                <TabsTrigger value="mobile" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <TabsTrigger
+                  value="mobile"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                >
                   Mobile Apps
                 </TabsTrigger>
-                <TabsTrigger value="design" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <TabsTrigger
+                  value="design"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                >
                   UI/UX Design
                 </TabsTrigger>
               </TabsList>
@@ -147,18 +167,26 @@ export default function ProjectsPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800">
-        <p className="text-xs text-gray-500">© 2023 Your Name. All rights reserved.</p>
+        <p className="text-xs text-gray-500">
+          © 2023 Your Name. All rights reserved.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white"
+            href="#"
+          >
             Terms of Service
           </Link>
-          <Link className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white"
+            href="#"
+          >
             Privacy
           </Link>
         </nav>
       </footer>
     </div>
-  )
+  );
 }
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
@@ -172,7 +200,11 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         <p className="mt-2 text-gray-400">{project.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="bg-blue-900/30 text-blue-400 flex items-center gap-1">
+            <Badge
+              key={tag}
+              variant="secondary"
+              className="bg-blue-900/30 text-blue-400 flex items-center gap-1"
+            >
               <Tag className="h-3 w-3" />
               {tag}
             </Badge>
@@ -191,7 +223,11 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             asChild
             className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
           >
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="mr-2 h-4 w-4" />
               GitHub
             </a>
@@ -199,5 +235,5 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

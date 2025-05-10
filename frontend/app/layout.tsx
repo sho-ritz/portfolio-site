@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio & Blog",
-  description: "A modern portfolio website with a blog section",
+  title: "Shodai SONOBE official website",
+  description: "Shodai SONOBE official website.",
   generator: "v0.dev",
 };
 
