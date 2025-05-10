@@ -145,41 +145,19 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getBlogPost(params.slug)
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b">
-        <Link className="flex items-center justify-center" href="/">
-          <span className="font-bold">Portfolio</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
-            Home
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/#skills">
-            Skills
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/projects">
-            Projects
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/blog">
-            Blog
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/#contact">
-            Contact
-          </Link>
-        </nav>
-      </header>
+    <div className="flex flex-col min-h-screen bg-black">
       <main className="flex-1">
         <article className="container max-w-4xl py-12 md:py-20 lg:py-32">
           <div className="space-y-4">
             <Link href="/blog">
-              <Button variant="link" className="p-0 h-auto">
+              <Button variant="link" className="p-0 h-auto text-blue-500">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
               </Button>
             </Link>
 
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{post.title}</h1>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl text-white">{post.title}</h1>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-1">
                 <Calendar className="h-4 w-4" />
                 <span>{post.date}</span>
@@ -192,7 +170,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="flex items-center gap-1">
+                <Badge key={tag} variant="secondary" className="bg-blue-900/30 text-blue-400 flex items-center gap-1">
                   <Tag className="h-3 w-3" />
                   {tag}
                 </Badge>
@@ -201,40 +179,40 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
 
           <div
-            className="mt-8 prose prose-gray max-w-none dark:prose-invert"
+            className="mt-8 prose prose-invert prose-blue max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          <Separator className="my-12" />
+          <Separator className="my-12 bg-gray-800" />
 
           <div className="space-y-8">
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center p-6 border rounded-lg bg-muted/40">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center p-6 border rounded-lg border-gray-800 bg-gray-900/40">
               <Avatar className="h-16 w-16">
-                <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+                <AvatarImage src={post.author.avatar || "/placeholder.svg"} alt={post.author.name} />
+                <AvatarFallback className="bg-blue-900 text-white">{post.author.name.charAt(0)}</AvatarFallback>
               </Avatar>
               <div>
                 <div className="flex items-center gap-2">
-                  <User className="h-4 w-4" />
-                  <h3 className="font-semibold">{post.author.name}</h3>
+                  <User className="h-4 w-4 text-blue-500" />
+                  <h3 className="font-semibold text-white">{post.author.name}</h3>
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{post.author.bio}</p>
+                <p className="text-sm text-gray-400">{post.author.bio}</p>
               </div>
             </div>
 
             {post.relatedPosts && post.relatedPosts.length > 0 && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Related Articles</h2>
+                <h2 className="text-2xl font-bold text-white">Related Articles</h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {post.relatedPosts.map((relatedPost) => (
-                    <Card key={relatedPost.slug}>
+                    <Card key={relatedPost.slug} className="bg-gray-900 border-gray-800">
                       <CardContent className="p-4">
                         <Link href={`/blog/${relatedPost.slug}`} className="hover:underline">
-                          <h3 className="font-semibold">{relatedPost.title}</h3>
+                          <h3 className="font-semibold text-white">{relatedPost.title}</h3>
                         </Link>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{relatedPost.excerpt}</p>
+                        <p className="text-sm text-gray-400 mt-2">{relatedPost.excerpt}</p>
                         <Link href={`/blog/${relatedPost.slug}`}>
-                          <Button variant="link" className="p-0 h-auto mt-2">
+                          <Button variant="link" className="p-0 h-auto mt-2 text-blue-500">
                             Read More <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
                           </Button>
                         </Link>
@@ -247,13 +225,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         </article>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">© 2023 Your Name. All rights reserved.</p>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800">
+        <p className="text-xs text-gray-500">© 2023 Your Name. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
+          <Link className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white" href="#">
             Terms of Service
           </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
+          <Link className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white" href="#">
             Privacy
           </Link>
         </nav>
@@ -261,4 +239,3 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     </div>
   )
 }
-

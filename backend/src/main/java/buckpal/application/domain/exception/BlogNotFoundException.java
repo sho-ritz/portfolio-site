@@ -5,4 +5,3 @@ public class BlogNotFoundException extends RuntimeException {
         super(msg);
     }
 }
-
