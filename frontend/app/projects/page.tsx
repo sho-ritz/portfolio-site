@@ -4,6 +4,8 @@ import { ArrowLeft, ExternalLink, Github, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React from "react";
+import { TetrisGame } from "@/components/tetris-game";
 
 // This is a placeholder for demonstration purposes
 // In a real application, you would fetch project data from a database or CMS
@@ -76,18 +78,27 @@ const projects = [
   },
 ];
 
-export default function ProjectsPage() {
+interface ProjectsPageProps {
+  setShowB: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function ProjectsPage({ setShowB }: ProjectsPageProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-black">
+    <div className="flex flex-col min-h-screen bg-black pb-[600px]">
+      {/* <div className="fixed top-0 left-0 w-full h-screen bg-black z-0 transition-opacity duration-500">
+        <TetrisGame />
+      </div> */}
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start space-y-4">
-              <Link href="/">
-                <Button variant="link" className="p-0 h-auto text-blue-500">
-                  <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
-                </Button>
-              </Link>
+              <Button
+                variant="link"
+                className="p-0 h-auto text-blue-500"
+                onClick={() => setShowB(false)}
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+              </Button>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
                 All Projects
               </h1>
@@ -166,7 +177,7 @@ export default function ProjectsPage() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800">
+      {/* <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800">
         <p className="text-xs text-gray-500">
           © 2023 Your Name. All rights reserved.
         </p>
@@ -184,7 +195,7 @@ export default function ProjectsPage() {
             Privacy
           </Link>
         </nav>
-      </footer>
+      </footer> */}
     </div>
   );
 }
