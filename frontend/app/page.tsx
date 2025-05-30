@@ -15,6 +15,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { SpaceInvadersGame } from "@/components/space-invaders-game";
 import { ProjectsPage } from "./projects/page";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -65,11 +68,16 @@ export default function Home() {
           muted
           loop
           playsInline
+          onLoadedData={() => console.log("▶️ video loaded and ready")}
+          onError={(e) => console.error("❌ video error event:", e)}
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4"
             type="video/mp4"
+            onError={(e) => {
+              console.error("Source error:", e.nativeEvent);
+            }}
           />
           Your browser does not support the video tag.
         </video>
@@ -101,23 +109,31 @@ export default function Home() {
                 <div className="container px-4 md:px-6">
                   <div className="flex flex-col items-center space-y-4 text-center">
                     <div className="space-y-2">
-                      <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-white">
+                      <h1
+                        className={`${inter.className} text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-white inter`}
+                      >
                         Shodai SONOBE
                       </h1>
-                      <p className="mx-auto max-w-[700px] text-xl text-gray-200 md:text-2xl">
-                        Frontend Developer & Backend Developer
+                      <p
+                        className={`${inter.className} mx-auto max-w-[700px] text-xl text-gray-200 md:text-2xl`}
+                      >
+                        Official Website
                       </p>
                     </div>
                     <div className="space-x-4 pt-6">
-                      <Link href="/blog">
-                        <Button className="inline-flex h-11 items-center justify-center rounded-md bg-white text-black px-8 py-2 text-sm font-medium shadow transition-colors hover:bg-gray-200">
-                          Read My Blog
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
+                      <Button
+                        className={`${inter.className} inline-flex h-11 items-center justify-center rounded-md bg-white text-black px-8 py-2 text-sm font-medium shadow transition-colors hover:bg-gray-200`}
+                        onClick={() => {
+                          setShowB(true);
+                          scrollBackup.current = window.scrollY;
+                        }}
+                      >
+                        Read My Blog
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
                       <Button
                         variant="outline"
-                        className="inline-flex h-11 items-center justify-center border-white text-white hover:bg-white hover:text-black"
+                        className={`${inter.className} inline-flex h-11 items-center justify-center border-white text-white hover:bg-white hover:text-black`}
                         onClick={handleClick}
                       >
                         Contact Me
@@ -150,10 +166,11 @@ export default function Home() {
                         <h3 className="text-xl font-bold text-white">
                           Frontend Development
                         </h3>
-                        <p className="text-gray-300">
-                          HTML, CSS, JavaScript, TypeScript, React, Next.js,
-                          Tailwind CSS
-                        </p>
+                        <img
+                          className="pt-[10px]"
+                          alt="my skills"
+                          src="https://skillicons.dev/icons?theme=dark&perline=7&i=html,css,js,ts,react,next"
+                        />
                       </div>
                     </div>
                     <div className="flex flex-col justify-center space-y-4 bg-black bg-opacity-70 p-6 rounded-lg border border-gray-800">
@@ -164,10 +181,26 @@ export default function Home() {
                         <h3 className="text-xl font-bold text-white">
                           Backend Development
                         </h3>
-                        <p className="text-gray-300">
-                          Node.js, NestJS, Python, Django, SQL, PostgreSQL,
-                          Java, SpringBoot
-                        </p>
+                        <img
+                          className="pt-[10px]"
+                          alt="my skills"
+                          src="https://skillicons.dev/icons?theme=dark&perline=7&i=python,nest,flask,django,docker,java,spring"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-center space-y-4 bg-black bg-opacity-70 p-6 rounded-lg border border-gray-800">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-600">
+                        <Code className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">
+                          Other Development
+                        </h3>
+                        <img
+                          className="pt-[10px]"
+                          alt="my skills"
+                          src="https://skillicons.dev/icons?theme=dark&perline=7&i=c,arduino,raspberrypi,vscode,github"
+                        />
                       </div>
                     </div>
                   </div>
