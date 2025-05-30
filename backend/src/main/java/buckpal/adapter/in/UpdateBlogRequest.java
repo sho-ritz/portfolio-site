@@ -1,4 +1,4 @@
-package buckpal.adapter.in;
+package com.example.adapter.in;
 
 import java.util.Optional;
 

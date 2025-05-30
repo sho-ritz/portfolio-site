@@ -1,4 +1,4 @@
-package buckpal.adapter.in;
+package com.example.adapter.in;
 
 import lombok.Getter;
 import lombok.Setter;

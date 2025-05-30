@@ -1,4 +1,4 @@
-package buckpal.application.port.in;
+package com.example.application.port.in;
 
 import java.util.Objects;
 import java.util.Optional;

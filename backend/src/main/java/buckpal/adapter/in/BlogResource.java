@@ -1,8 +1,8 @@
-package buckpal.adapter.in;
+package com.example.adapter.in;
 
 import java.time.format.DateTimeFormatter;
 
-import buckpal.application.domain.model.Blog;
+import com.example.application.domain.model.Blog;
 
 public class BlogResource {
     private final String id;

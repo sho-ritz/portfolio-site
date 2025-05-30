@@ -1,4 +1,4 @@
-package buckpal.application.domain.model;
+package com.example.application.domain.model;
 
 public class BlogId {
     private final String value;

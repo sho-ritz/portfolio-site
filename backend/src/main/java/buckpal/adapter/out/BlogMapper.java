@@ -1,7 +1,7 @@
-package buckpal.adapter.out;
+package com.example.adapter.out;
 
-import buckpal.application.domain.model.Blog;
-import buckpal.application.domain.model.BlogId;
+import com.example.application.domain.model.Blog;
+import com.example.application.domain.model.BlogId;
 
 public class BlogMapper {
 	public static BlogJpaEntity mapToBlogJpaEntity(Blog blog) {

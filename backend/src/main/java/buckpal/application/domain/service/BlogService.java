@@ -1,22 +1,22 @@
-package buckpal.application.domain.service;
+package com.example.application.domain.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import buckpal.adapter.out.BlogJpaEntity;
-import buckpal.adapter.out.BlogMapper;
-import buckpal.application.domain.exception.BlogNotFoundException;
-import buckpal.application.domain.model.Blog;
-import buckpal.application.domain.model.BlogId;
-import buckpal.application.port.in.BlogUseCase;
-import buckpal.application.port.in.CreateBlogCommand;
-import buckpal.application.port.in.UpdateBlogCommand;
-import buckpal.application.port.out.BlogRepository;
-import buckpal.application.port.out.CreateBlogPort;
-import buckpal.application.port.out.DeleteBlogPort;
-import buckpal.application.port.out.UpdateBlogPort;
+import com.example.adapter.out.BlogJpaEntity;
+import com.example.adapter.out.BlogMapper;
+import com.example.application.domain.exception.BlogNotFoundException;
+import com.example.application.domain.model.Blog;
+import com.example.application.domain.model.BlogId;
+import com.example.application.port.in.BlogUseCase;
+import com.example.application.port.in.CreateBlogCommand;
+import com.example.application.port.in.UpdateBlogCommand;
+import com.example.application.port.out.BlogRepository;
+import com.example.application.port.out.CreateBlogPort;
+import com.example.application.port.out.DeleteBlogPort;
+import com.example.application.port.out.UpdateBlogPort;
 
 @Service
 class BlogService implements BlogUseCase {

@@ -1,12 +1,12 @@
-package buckpal.adapter.out;
+package com.example.adapter.out;
 
 import org.springframework.stereotype.Repository;
 
-import buckpal.application.domain.model.Blog;
-import buckpal.application.port.out.BlogRepository;
-import buckpal.application.port.out.CreateBlogPort;
-import buckpal.application.port.out.DeleteBlogPort;
-import buckpal.application.port.out.UpdateBlogPort;
+import com.example.application.domain.model.Blog;
+import com.example.application.port.out.BlogRepository;
+import com.example.application.port.out.CreateBlogPort;
+import com.example.application.port.out.DeleteBlogPort;
+import com.example.application.port.out.UpdateBlogPort;
 
 @Repository
 class BlogPersistanceAdapter implements CreateBlogPort, UpdateBlogPort, DeleteBlogPort {

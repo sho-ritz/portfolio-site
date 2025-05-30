@@ -1,8 +1,8 @@
-package buckpal.application.port.in;
+package com.example.application.port.in;
 
 import java.util.List;
 
-import buckpal.application.domain.model.Blog;
+import com.example.application.domain.model.Blog;
 
 public interface BlogUseCase {
 	List<Blog> getBlogs();

@@ -1,4 +1,4 @@
-package buckpal.application.domain.exception;
+package com.example.application.domain.exception;
 
 public class BlogNotFoundException extends RuntimeException {
     public BlogNotFoundException(String msg) {

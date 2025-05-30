@@ -1,4 +1,4 @@
-package buckpal.adapter.in;
+package com.example.adapter.in;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import buckpal.application.domain.model.Blog;
-import buckpal.application.port.in.BlogUseCase;
-import buckpal.application.port.in.CreateBlogCommand;
-import buckpal.application.port.in.UpdateBlogCommand;
+import com.example.application.domain.model.Blog;
+import com.example.application.port.in.BlogUseCase;
+import com.example.application.port.in.CreateBlogCommand;
+import com.example.application.port.in.UpdateBlogCommand;
 
 @RestController
 @RequestMapping("/blogs")

@@ -1,4 +1,4 @@
-package buckpal.adapter.out;
+package com.example.adapter.out;
 
 import java.time.LocalDateTime;
 
