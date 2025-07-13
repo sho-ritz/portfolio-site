@@ -86,11 +86,26 @@ interface ProjectsPageProps {
 
 export function ProjectsPage({ setShowB }: ProjectsPageProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-black pb-[600px]">
+    <div className="flex flex-col min-h-screen bg-black pb-[600px] relative">
+      {/* Background Video */}
+      <div className="fixed inset-0 w-full h-full z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/videos/stars.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      </div>
+
       {/* <div className="fixed top-0 left-0 w-full h-screen bg-black z-0 transition-opacity duration-500">
         <TetrisGame />
       </div> */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start space-y-4">

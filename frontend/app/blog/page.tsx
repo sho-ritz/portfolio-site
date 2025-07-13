@@ -1,12 +1,27 @@
-import Link from "next/link"
-import { ArrowRight, ArrowLeft } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function BlogPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-black">
-      <main className="flex-1">
+    <div className="flex flex-col min-h-screen bg-black relative">
+      {/* Background Video */}
+      <div className="fixed inset-0 w-full h-full z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/videos/stars.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      </div>
+
+      <main className="flex-1 relative z-10">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start space-y-4">
@@ -16,9 +31,12 @@ export default function BlogPage() {
                 </Button>
               </Link>
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Blog & Articles</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+                  Blog & Articles
+                </h1>
                 <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Sharing my thoughts, experiences, and knowledge about web development and design.
+                  Sharing my thoughts, experiences, and knowledge about web
+                  development and design.
                 </p>
               </div>
             </div>
@@ -30,9 +48,12 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white">Getting Started with Next.js</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Getting Started with Next.js
+                  </h3>
                   <p className="text-gray-400">
-                    Learn how to build modern web applications with Next.js, React, and Tailwind CSS.
+                    Learn how to build modern web applications with Next.js,
+                    React, and Tailwind CSS.
                   </p>
                 </div>
                 <Link href="/blog/getting-started-with-nextjs">
@@ -48,9 +69,12 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white">Responsive Design Best Practices</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Responsive Design Best Practices
+                  </h3>
                   <p className="text-gray-400">
-                    Tips and tricks for creating responsive websites that look great on all devices.
+                    Tips and tricks for creating responsive websites that look
+                    great on all devices.
                   </p>
                 </div>
                 <Link href="/blog/responsive-design-best-practices">
@@ -66,9 +90,12 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white">Introduction to TypeScript</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Introduction to TypeScript
+                  </h3>
                   <p className="text-gray-400">
-                    Why TypeScript is becoming the standard for modern JavaScript development.
+                    Why TypeScript is becoming the standard for modern
+                    JavaScript development.
                   </p>
                 </div>
                 <Link href="/blog/introduction-to-typescript">
@@ -84,9 +111,12 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white">Building a Portfolio Website</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Building a Portfolio Website
+                  </h3>
                   <p className="text-gray-400">
-                    A step-by-step guide to creating a professional portfolio website to showcase your work.
+                    A step-by-step guide to creating a professional portfolio
+                    website to showcase your work.
                   </p>
                 </div>
                 <Link href="/blog/building-a-portfolio-website">
@@ -100,16 +130,24 @@ export default function BlogPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800">
-        <p className="text-xs text-gray-500">© 2023 Your Name. All rights reserved.</p>
+        <p className="text-xs text-gray-500">
+          © 2023 Your Name. All rights reserved.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white"
+            href="#"
+          >
             Terms of Service
           </Link>
-          <Link className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4 text-gray-500 hover:text-white"
+            href="#"
+          >
             Privacy
           </Link>
         </nav>
       </footer>
     </div>
-  )
+  );
 }
